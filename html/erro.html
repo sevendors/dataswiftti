@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <style>
+        .login-form {
+            width: 100%;
+            max-width: 600px; /* Altere este valor para ajustar o tamanho lateral */
+            padding: 2em;
+            position: relative;
+            background: rgb(255, 255, 255);
+            margin: 0 auto; /* Centraliza o formulário */
+        }
+        .login-form:before {
+            content: '';
+            position: absolute;
+            top: 2px; left: 2px; right: 2px; bottom: 2px;
+            height: 3px; width: 120%;
+            background: linear-gradient( #35c3c1, #00d6b7);
+        }
+
+        @media (min-width: 600px) {
+        .login-form { width: 50vw; max-width: 600px; } /* Ajuste max-width conforme necessário */
+        }
+    </style>
+</head>
+<body>
+    <form class='login-form'>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 80vh;">
+        <img src="../img/pagina_quebrada.jpg" alt="Página quebrada" style="width: 600px; height: 600px; margin-bottom: 20px;"/>
+        <h1>Ocorreu um erro</h1>
+        <p>Desculpe, algo deu errado.</p>
+    </div>
+    </form>
+    
+</body>
+</html>
