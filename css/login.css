@@ -38,7 +38,7 @@ body:before {
   position: absolute;
   top: -2px; left: 0;
   height: 2px; width: 100%;
-  background: linear-gradient(to right, #35c3c1, #00d6b7);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
 }
 
 @media (min-width: 600px) {
@@ -56,19 +56,38 @@ body:before {
   cursor: pointer;
 }
 
-.lf--input, .lf--submit {
+.lf--input, 
+.lf--submit {
   border: 0;
   font-size: 1rem;
 }
 
+/* Estilo base para todos os inputs */
 .lf--input {
   flex: 1;
   padding: 1em;
   color: #8f8f8f;
+  min-width: 50px; /* mais flexível que width fixa */
 }
 
-.lf--input:focus, .lf--submit:focus {
+/* Modificador específico para o CEP */
+.lf--input--cep {
+  margin-left: 8px;
+  min-width: 20px;
+  -moz-appearance: textfield;
+}
+
+.lf--input--cep::-webkit-outer-spin-button,
+.lf--input--cep::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Acessibilidade no foco */
+.lf--input:focus,
+.lf--submit:focus {
   outline: none;
+  box-shadow: 0 0 0 2px #667eea55; /* feedback visual melhor */
   transition: transform .15s ease;
 }
 
@@ -76,7 +95,7 @@ body:before {
   display: block;
   padding: 1em;
   width: 100%;
-  background: linear-gradient(to right, #35c3c1, #00d6b7);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   color: #fff;
   cursor: pointer;
   font-size: .75em;
@@ -86,11 +105,12 @@ body:before {
 
 .lf--forgot {
   margin-top: 1em;
-  text-shadow: #8f8f8f 0 1px 0;
+  text-shadow: #cfcfcf 0 1px 0;
   color: #00d6b7;
   font-size: .65em;
   text-align: center;
   position: relative;
 }
+
 
 ::placeholder { color: #8f8f8f; }

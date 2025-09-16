@@ -7,6 +7,7 @@
   <!-- se precisar manter relativo ao arquivo atual -->
 <link rel="stylesheet" href="../css/login.css?v=1"/>
 <link rel="stylesheet" href="../css/homepage.css?v=1"/>
+<link rel="stylesheet" href="../css/remover_controle.css?v=1"/>
 </head>
 <body>
 <nav id="navbar">
@@ -21,40 +22,30 @@
     </nav>
 <form class='login-form'>
   <div class="flex-row">
-    <label class="lf--label" for="username">
+    <label class="lf--label" for="email">
     </label>
-    <input id="username" class='lf--input' placeholder='Username' type='text'>
+    <input id="email" class='lf--input' placeholder='E-mail' type='text'>
   </div>
   <div class="flex-row">
-    <label class="lf--label" for="username">
+    <label class="lf--label" for="CPF">
     </label>
-    <input id="username" class='lf--input' placeholder='Username' type='text'>
+    <input id="CPF" class='lf--input' placeholder='CPF' type='text'>
   </div>
   <div class="flex-row">
-    <label class="lf--label" for="username">
+    <label class="lf--label" for="Senha">
     </label>
-    <input id="username" class='lf--input' placeholder='Username' type='text'>
+    <input id="Senha" class='lf--input' placeholder='Senha' type='password'>
   </div>
   <div class="flex-row">
-    <label class="lf--label" for="username">
+    <label class="lf--label" for="Confirmação de Senha">
     </label>
-    <input id="username" class='lf--input' placeholder='Username' type='text'>
+    <input id="Confirmação de Senha" class='lf--input' placeholder='Confirmação de Senha' type='password'>
   </div>
   <div class="flex-row">
-    <label class="lf--label" for="username">
+    <label class="lf--label" for="CEP">
     </label>
-    <input id="username" class='lf--input' placeholder='Username' type='text'>
-  </div>
-  <div class="flex-row">
-    <label class="lf--label" for="username">
-    </label>
-    <input id="username" class='lf--input' placeholder='Username' type='text'>
-  </div>
-  <div class="flex-row">
-    <label class="lf--label" for="username">
-    </label>
-    <input id="username" class='lf--input' placeholder='Username' type='text'>
-    <input id="codigo" class="lf--input" type="number" placeholder="000" min="0" max="999" maxlength="3" style="width: 50px; margin-left: 8px;" oninput="if(this.value.length>3)this.value=this.value.slice(0,3);">
+    <input id="CEP" class='lf--input' placeholder='CEP' type='text'>
+    <input id="codigo" class="lf--input lf--input--cep" type="number" placeholder="000" min="0" max="999" maxlength="3" style="width: 50px; margin-left: 8px;" oninput="if(this.value.length>3)this.value=this.value.slice(0,3);">
   </div>
   <input class='lf--submit' type='submit' value='CADASTRAR'>
 </form>
