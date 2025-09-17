@@ -1,0 +1,96 @@
+/* ====== Shell da página (não impacta outras telas) ====== */
+.page-cadastro { --nav-h: 64px; font-family: 'Roboto', helvetica, arial, sans-serif; }
+.page-cadastro, .page-cadastro html { height: 100%; }
+.page-cadastro { position: relative; background: linear-gradient(135deg, rgba(221, 222, 223, 0.9), rgba(255,255,255,.9)); }
+.page-cadastro * { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; box-sizing: border-box; }
+
+/* textura de fundo, fixa e leve */
+.page-cadastro:before{
+  content:''; position:fixed; inset:0; pointer-events:none; opacity:.3;
+}
+
+/* container central, respeita o nav e permite rolagem */
+.page-cadastro .auth-shell{
+  min-height: calc(100vh - var(--nav-h));
+  padding: 48px 16px 64px;
+  display: grid; place-items: center;
+}
+
+/* ====== Card do formulário (paridade visual com Login) ====== */
+.page-cadastro .login-form{
+  width: 100%; max-width: 600px; /* ajuste se quiser mais estreito, ex: 480px */
+  padding: 2em; margin: 0 auto;
+  position: relative; background: rgba(0,0,0,.116);
+}
+.page-cadastro .login-form:before{
+  content:''; position:absolute; top:-2px; left:0; height:2px; width:100%;
+  background: linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);
+}
+@media (min-width: 600px){
+  .page-cadastro .login-form{ width: 50vw; max-width: 600px; }
+}
+
+/* ====== Campos ====== */
+.page-cadastro .flex-row{ display:flex; margin-bottom:1em; }
+.page-cadastro .lf--label{
+  width: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f6f8;
+  cursor: pointer;
+}
+
+.page-cadastro .lf--input, 
+.page-cadastro .lf--submit{ border:0; font-size:1rem; }
+
+.page-cadastro .lf--input{
+  flex:1; padding:1em; color:#8f8f8f; min-width:50px; background:#fff;
+}
+
+/* CEP + número */
+.page-cadastro .lf--input--cep{
+  margin-left:8px; min-width:20px; -moz-appearance:textfield;
+}
+.page-cadastro .lf--input--cep::-webkit-outer-spin-button,
+.page-cadastro .lf--input--cep::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0; }
+
+/* foco */
+.page-cadastro .lf--input:focus,
+.page-cadastro .lf--submit:focus{
+  outline:none; box-shadow:0 0 0 2px #667eea55; transition: transform .15s ease;
+}
+
+/* CTA */
+.page-cadastro .lf--submit{
+  display:block; padding:1em; width:100%;
+  background: linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);
+  color:#fff; cursor:pointer; font-size:.75em; font-weight:600;
+  text-shadow:0 1px 0 rgba(0,0,0,.2);
+}
+
+.page-cadastro .lf--forgot{
+  margin-top:1em; text-shadow:#cfcfcf 0 1px 0; color:#00d6b7;
+  font-size:.65em; text-align:center; position:relative;
+}
+
+.page-cadastro ::placeholder{ color:#8f8f8f; }
+
+/* utilitários */
+.page-cadastro .sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+.page-cadastro .pw-toggle{ border:0; background:transparent; cursor:pointer; padding:0 .25rem; }
+.page-cadastro #form-feedback{ margin-top:8px; font-size:.85rem; }
+.page-cadastro #form-feedback.error{ color:#e02424; }
+.page-cadastro #form-feedback.success{ color:#00b894; }
+.page-cadastro .terms{
+  font-size:.7em; color:#555; margin-top:1em; text-align:center;
+}
+.page-cadastro .terms a{ color:var(--primary-color); text-decoration:none; }
+.page-cadastro .terms a:hover{ text-decoration:underline; }
+.page-cadastro .terms a:focus{ outline:none; box-shadow:0 0 0 2px #667eea55; }
+.page-cadastro .info{
+  font-size:.85em; color:#555; margin-bottom:1em; text-align:center;
+}

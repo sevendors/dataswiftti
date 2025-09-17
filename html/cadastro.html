@@ -1,54 +1,134 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
   <meta charset="utf-8">
-  <title>Login</title>
-  <!-- se precisar manter relativo ao arquivo atual -->
-<link rel="stylesheet" href="../css/login.css?v=1"/>
-<link rel="stylesheet" href="../css/homepage.css?v=1"/>
-<link rel="stylesheet" href="../css/remover_controle.css?v=1"/>
+  <title>Cadastro | Data Swift TI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/homepage.css?v=1">
+  <link rel="stylesheet" href="../css/remover_controle.css?v=1">
+  <link rel="stylesheet" href="../css/cadastro.css?v=2"><!-- carrega por último -->
 </head>
-<body>
+<body class="page-cadastro">
 <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">Data Swift TI</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </div>
-    </nav>
-<form class='login-form'>
-  <div class="flex-row">
-    <label class="lf--label" for="email">
-    </label>
-    <input id="email" class='lf--input' placeholder='E-mail' type='text'>
+  <div class="nav-container">
+    <div class="logo">Data Swift TI</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
   </div>
-  <div class="flex-row">
-    <label class="lf--label" for="CPF">
-    </label>
-    <input id="CPF" class='lf--input' placeholder='CPF' type='text'>
-  </div>
-  <div class="flex-row">
-    <label class="lf--label" for="Senha">
-    </label>
-    <input id="Senha" class='lf--input' placeholder='Senha' type='password'>
-  </div>
-  <div class="flex-row">
-    <label class="lf--label" for="Confirmação de Senha">
-    </label>
-    <input id="Confirmação de Senha" class='lf--input' placeholder='Confirmação de Senha' type='password'>
-  </div>
-  <div class="flex-row">
-    <label class="lf--label" for="CEP">
-    </label>
-    <input id="CEP" class='lf--input' placeholder='CEP' type='text'>
-    <input id="codigo" class="lf--input lf--input--cep" type="number" placeholder="000" min="0" max="999" maxlength="3" style="width: 50px; margin-left: 8px;" oninput="if(this.value.length>3)this.value=this.value.slice(0,3);">
-  </div>
-  <input class='lf--submit' type='submit' value='CADASTRAR'>
-</form>
-</body>
+</nav>
 
+<!-- Espaço entre o nav e o conteúdo principal -->
+<div style="height: 100px;"></div>
+
+<main class="auth-shell">
+  <form id="signupForm" class="login-form" method="POST" action="cadastro.php" accept-charset="UTF-8">
+    <input type="hidden" name="csrf_token" value="{{TOKEN}}">
+    <label for="website" class="sr-only">Deixe em branco</label>
+    <input id="website" name="website" type="text" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <div class="flex-row">
+      <label class="lf--label" for="nome">
+      <svg x="0px" y="0px" width="12px" height="13px"></svg>
+      </label>
+      <input id="nome" name="nome" class="lf--input" placeholder="Nome completo" type="text" autocomplete="name" required>
+    </div>
+
+    <div class="flex-row">
+      <label class="lf--label" for="email">
+      <svg x="0px" y="0px" width="12px" height="13px"></svg>
+      </label>
+      <input id="email" name="email" class="lf--input" placeholder="E-mail" type="email" autocomplete="email" required>
+    </div>
+
+    <div class="flex-row">
+      <label class="lf--label" for="cpf">
+      <svg x="0px" y="0px" width="12px" height="13px"></svg>
+      </label>
+      <input id="cpf" name="cpf" class="lf--input" placeholder="Digite o CPF, apenas números." type="text"
+             inputmode="numeric" pattern="[0-9]{11}" minlength="11" maxlength="11" autocomplete="off" required>
+    </div>
+
+    <div class="flex-row inline">
+      <label class="lf--label" for="senha">
+      <svg x="0px" y="0px" width="12px" height="13px"></svg>
+      </label>
+      <div class="grow" style="flex:2;">
+      <input id="senha" name="senha" class="lf--input" placeholder="Digite a senha, mínimo 8 caracteres"
+           type="password" autocomplete="new-password" minlength="8" required style="width:100%;">
+      </div>
+      <button class="pw-toggle" type="button" aria-controls="senha" aria-label="Mostrar/ocultar senha">
+        <img src="/img/svg/olho.png" alt="Mostrar/ocultar senha" width="24" height="24" style="display:inline;vertical-align:middle;">
+      </button>
+    </div>
+
+    <div class="flex-row inline">
+      <label class="lf--label" for="confirmacao">
+      <svg x="0px" y="0px" width="12px" height="13px"></svg>
+      </label>
+      <div class="grow" style="flex:2;">
+        <input id="confirmacao" name="confirmacao" class="lf--input" placeholder="Repita a senha"
+               type="password" autocomplete="new-password" minlength="8" required style="width:100%;">
+      </div>
+    </div>
+
+    <div class="flex-row cep-grid">
+      <label class="lf--label" for="cep">
+      <svg x="0px" y="0px" width="12px" height="13px"></svg>
+      </label>
+      <div class="grow" style="flex:2;">
+      <input id="cep" name="cep" class="lf--input" placeholder="Digite o CEP, somente números" type="text"
+         inputmode="numeric" pattern="[0-9]{8}" minlength="8" maxlength="8" autocomplete="postal-code" required style="width:100%;">
+      </div>
+      <input id="numero" name="numero" class="lf--input lf--input--cep input-numero" type="number" placeholder="Número" autocomplete="address-line2" required style="width:100%;">
+      </div>
+    </div>
+
+    <div class="flex-row">
+      <label class="lf--label" for="logradouro">
+      <svg x="0px" y="0px" width="12px" height="13px"></svg>
+      </label>
+      <input id="logradouro" name="logradouro" placeholder="Logradouro" class="lf--input" type="text" autocomplete="street-address" required>
+    </div>
+
+    <div class="flex-row">
+      <label class="lf--label" for="bairro">
+      <svg x="0px" y="0px" width="12px" height="13px"></svg>
+      </label>
+      <input id="bairro" name="bairro" placeholder="Bairro" class="lf--input" type="text" autocomplete="address-line1" required>
+    </div>
+
+    <div class="flex-row">
+      <label class="lf--label" for="cidade">
+      <svg x="0px" y="0px" width="12px" height="13px"></svg>
+      </label>
+      <input id="cidade" name="cidade" placeholder="Cidade" class="lf--input" type="text" autocomplete="address-level2" required>
+    </div>
+
+    <div class="flex-row">
+      <label class="lf--label" for="uf">
+      <svg x="0px" y="0px" width="12px" height="13px"></svg>
+      </label>
+      <input id="uf" name="uf" placeholder="UF" class="lf--input" type="text" maxlength="2" pattern="[A-Za-z]{2}" autocomplete="address-level1" required>
+    </div>
+
+    <div class="flex-row" style="justify-content: center; align-items: center; text-align: center;">
+      <input id="aceite" name="aceite" type="checkbox" required style="margin-right:8px;">
+      <label for="aceite">Declaro que li e aceito os <a href="/termos" target="_blank" rel="noopener">Termos de Uso</a> e a <a href="/privacidade" target="_blank" rel="noopener">Política de Privacidade</a>.</label>
+    </div>
+
+    <div id="form-feedback" role="alert" aria-live="polite"></div>
+
+    <input id="submitBtn" class="lf--submit" type="submit" value="CADASTRAR">
+    <div class="aux-link" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+      <label ><br>Já tem conta?</label>
+      <a href="login.html">Entrar</a>
+    </div>
+  </form>
+</main>
+
+<script defer src="../js/cadastro.js?v=1"></script>
+</body>
 </html>
