@@ -58,6 +58,37 @@
       <small id="cpf-hint" class="sr-only">Informe 11 dígitos, somente números.</small>
     </div>
 
+    <div class="flex-row">
+    <!-- Campo DDD -->
+    <label class="lf--label" for="ddd">
+      <span class="sr-only">DDD</span>
+    </label>
+    <input id="ddd" name="ddd" class="lf--input ddd"
+       placeholder="DDD"
+       type="text"
+       inputmode="numeric"
+       pattern="[0-9]{2}"
+       minlength="2" maxlength="2"
+       autocomplete="off" required>
+    <small id="ddd-hint" class="sr-only">Informe 2 dígitos do DDD.</small>
+
+    <!-- Campo Telefone -->
+    <label class="lf--label" for="telefone">
+      <span class="sr-only">Telefone</span>
+    </label>
+    <input id="telefone" name="telefone" class="lf--input telefone"
+          placeholder="Telefone"
+          type="text"
+          inputmode="numeric"
+          pattern="[0-9]{8,9}"
+          minlength="8" maxlength="9"
+          autocomplete="tel"
+          aria-describedby="telefone-hint" required>
+    <small id="telefone-hint" class="sr-only">
+      Informe o número do telefone (8 ou 9 dígitos, sem DDD).
+    </small>
+    </div>
+
     <div class="flex-row inline">
       <label class="lf--label" for="senha">
         <span class="sr-only">Senha</span>

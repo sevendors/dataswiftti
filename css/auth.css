@@ -59,6 +59,11 @@ body.page-auth {
 .lf--input:focus, .lf--submit:focus {
   outline:none; box-shadow:0 0 0 2px #667eea55; transition:transform .15s ease;
 }
+.lf--input.ddd {
+  flex: 0 0 100px;   /* largura fixa */
+  padding: 1em;
+  text-align: center;
+}
 .lf--submit {
   display:block; padding:1em; width:100%;
   background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);
