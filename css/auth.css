@@ -1,0 +1,123 @@
+/* Reset & fontes */
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  box-sizing: border-box;
+}
+
+html, body { height: 100%; margin: 0; }
+
+/* Formulário base (login e cadastro) */
+
+body.page-auth {
+  --nav-h: 80px; /* altura da barra fixa */
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(227,229,231,.9), rgba(255,255,255,.9));
+  display: flex;
+  flex-direction: column;
+}
+
+/* container principal abaixo da barra */
+.page-auth main {
+  margin-top: var(--nav-h);
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.login-form {
+  width: 100%; max-width: 600px;
+  padding: 2em; margin: 0 auto;
+  position: relative;
+  background: rgba(0,0,0,.116);
+}
+.login-form:before {
+  content:''; position:absolute; top:-2px; left:0; height:2px; width:100%;
+  background: linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);
+}
+@media (min-width: 600px){
+  .login-form { width: 50vw; max-width: 600px; }
+}
+
+.flex-row { display:flex; margin-bottom:1em; }
+.lf--label {
+  width:2em; display:flex; align-items:center; justify-content:center;
+  background:#f5f6f8; cursor:pointer;
+}
+.lf--input, .lf--submit { border:0; font-size:1rem; }
+.lf--input {
+  flex:1; padding:1em; color:#8f8f8f; min-width:50px; background:#fff;
+}
+.lf--input--cep {
+  margin-left:8px; min-width:20px;
+  -moz-appearance:textfield; appearance:textfield;
+}
+.lf--input--cep::-webkit-outer-spin-button,
+.lf--input--cep::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+.lf--input:focus, .lf--submit:focus {
+  outline:none; box-shadow:0 0 0 2px #667eea55; transition:transform .15s ease;
+}
+.lf--submit {
+  display:block; padding:1em; width:100%;
+  background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);
+  color:#fff; cursor:pointer;
+  font-size:.75em; font-weight:600;
+  text-shadow:0 1px 0 rgba(0,0,0,.2);
+}
+/* estilo do link */
+.lf--forgot {
+  margin-top: 1em;
+  text-shadow: #cfcfcf 0 1px 0;
+  color: #00d6b7;
+  font-size: .65em;
+  text-align: center;
+  position: relative;
+  cursor: pointer; /* indica que é clicável */
+  font-family: 'Roboto', helvetica, arial, sans-serif; /* mantém fonte coerente */
+}
+
+/* container para alinhar o link abaixo da caixa */
+.auth-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.forgot-wrapper {
+  margin-top: 0.75em;
+  text-align: center;
+  width: 100%;
+}
+
+
+::placeholder { color:#8f8f8f; }
+
+/* ====================== Exclusivo da página de cadastro ====================== */
+.page-cadastro { --nav-h: 64px; }
+.page-cadastro .auth-shell {
+  min-height: calc(100vh - var(--nav-h));
+  padding: 48px 16px 64px;
+  display: grid; place-items: center;
+}
+.page-cadastro .sr-only {
+  position:absolute; width:1px; height:1px;
+  padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+.page-cadastro .pw-toggle { border:0; background:transparent; cursor:pointer; padding:0 .25rem; }
+.page-cadastro #form-feedback { margin-top:8px; font-size:.85rem; }
+.page-cadastro #form-feedback.error { color:#e02424; }
+.page-cadastro #form-feedback.success { color:#00b894; }
+.page-cadastro .terms {
+  font-size:.7em; color:#555; margin-top:1em; text-align:center;
+}
+.page-cadastro .terms a { color:var(--primary-color); text-decoration:none; }
+.page-cadastro .terms a:hover { text-decoration:underline; }
+.page-cadastro .terms a:focus { outline:none; box-shadow:0 0 0 2px #667eea55; }
+.page-cadastro .info {
+  font-size:.85em; color:#555; margin-bottom:1em; text-align:center;
+}

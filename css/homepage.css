@@ -1,6 +1,9 @@
 @charset "utf-8";
+
+/* Variáveis */
 :root {
     --primary-color: #6366f1;
+    --nav-height: 80px; /* altura da barra de navegação */
 }
 
 * {
@@ -19,17 +22,23 @@ body {
 nav {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
+    height: var(--nav-height);
     background: rgba(255,255,255,0.95);
     z-index: 1000;
-    padding: 1rem 0;
     border-bottom: 1px solid rgba(255,255,255,0.1);
+
+    display: flex;
+    align-items: center; /* centraliza verticalmente */
 }
 
 .nav-container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,8 +73,15 @@ nav {
 
 .nav-links a:hover {
     color: var(--primary-color);
+    font-weight: 700;
 }
 
+/* Garante que o conteúdo nunca fique escondido sob o nav */
+main {
+    margin-top: var(--nav-height);
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
     .nav-links {
         display: none;

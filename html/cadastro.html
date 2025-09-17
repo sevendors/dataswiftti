@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- CSS base do site -->
   <link rel="stylesheet" href="../css/homepage.css?v=1">
-  <link rel="stylesheet" href="../css/remover_controle.css?v=1">
-  <!-- CSS da página de cadastro (carregar por último) -->
-  <link rel="stylesheet" href="../css/cadastro.css?v=2">
+  <link rel="stylesheet" href="../css/auth.css">
 </head>
 <body class="page-cadastro">
 <nav id="navbar">
@@ -23,9 +21,9 @@
     </nav>
 
 <main class="auth-shell">
-  <h1 class="sr-only">Cadastro</h1>
-
+  <div><h1 class="logo">CADASTRO</h1></div>
   <form id="signupForm" class="login-form" method="POST" action="cadastro.php" accept-charset="UTF-8">
+    
     <input type="hidden" name="csrf_token" value="{{TOKEN}}">
     <input type="hidden" name="terms_version" value="2025-09-17">
 
@@ -153,6 +151,6 @@
   </form>
 </main>
 
-<script defer src="../js/cadastro.js?v=2"></script>
+<script defer src="/js/cadastro.v3.js"></script>
 </body>
 </html>
